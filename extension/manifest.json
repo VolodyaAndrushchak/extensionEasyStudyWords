@@ -1,0 +1,28 @@
+{
+	"manifest_version": 2,
+	
+	"name": "StudyTranslater",
+	"version": "1.0",
+	"description": "Help people to study new english words",
+	
+	"content_scripts": [
+    {
+      "matches": [ "http://*/*", "https://*/*" ],
+      "js": [ "js/jquery.js", "js/dblclick.js" ],
+      "all_frames": true,
+      "run_at": "document_end"
+    }
+  ],
+
+	"permissions": [
+		"https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20170105T114050Z.873224048886e44e.0c1fbef17184a12e7c2b498d046c2ff7ed69bdec"		
+	],
+	
+	"browser_action": {
+		"default_title": "StudyTranslater1",
+		"default_icon": "img/icon.png",
+		"default_popup": "popup.html"
+	},
+	
+	"options_page": "options.html" 
+}

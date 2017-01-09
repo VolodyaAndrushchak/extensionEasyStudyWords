@@ -1,0 +1,147 @@
+<script src= "js/jquery.js"></script>
+<script src = "js/popup.js"></script>
+
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	
+	#wrapper {
+		width: 200px;
+		height: auto;
+	}
+	
+	#wrapper p {
+		text-align: center;
+	}
+	#wrapper p:nth-child(2) {
+		font-size: 19px;
+	}
+	
+	#wrapper p:nth-child(3) {
+		margin-top: 3px;
+	}
+	
+	#wrapper p:nth-child(3)  {
+		font-size: 15px;
+	}
+	
+	#wrapper p.previous-words {
+		font-size: 15px;
+		margin-top: 2px;
+	}
+	
+	#wrapper p span {
+		font-weight: bold;
+		color: darkred;
+	}
+	
+	table {
+		width: 96%;
+		margin: auto;
+	}
+	
+	table td {
+		font-size: 12px;
+	}
+	
+	table td:first-child {
+		width: 6%;	
+	}
+	
+	table td:nth-child(2) {
+		width: 47%;	
+	}
+	
+	table td:nth-child(3) {
+		width: 47%;	
+	}
+	
+	#new-pop-up-menu, #repeat-pop-up-menu {
+		width: 96%;
+		margin: auto;
+		text-align: center;
+	}	
+	#new-pop-up-menu:hover, #repeat-pop-up-menu:hover {
+		background-color: #FEFEAA;
+		cursor: pointer;
+	}
+	
+	.hidden-table {
+		display: none;
+	}
+	.status-word {
+		width: 5px;
+		height: 5px;
+		margin-top: 3px;
+		background-color: darkred;
+		border-radius: 2px;
+		
+	}
+	
+</style>
+
+<div id="wrapper">
+	<p>qwerty</p>
+	
+	<p>Easy study words</p>
+	<p>Study <span>new</span></p>
+	
+	<table id = "tableNew">
+		
+	</table>
+	
+	<div id = "new-pop-up-menu" onclick="showHiddenWords()">button 1</div>
+		<table class = "hidden-table">
+			<tr>
+				<td><div class = "status-word"></div></td>
+				<td>translate</td>
+				<td>перекладати</td>
+			</tr>
+			<tr>
+				<td><div class = "status-word"></div></td>
+				<td>bread</td>
+				<td>хліб</td>
+			</tr>
+			<tr>
+				<td><div class = "status-word"></div></td>
+				<td>important</td>
+				<td>важливий</td>
+			</tr>
+		</table>
+	
+	<p class = "previous-words">and repeat <span>previous</span> words</p>	
+	<table>
+		<tr>
+			<td><div class = "status-word"></div></td>
+			<td>translate</td>
+			<td>перекладати</td>
+		</tr>
+		<tr>
+			<td><div class = "status-word"></div></td>
+			<td>bread</td>
+			<td>хліб</td>
+		</tr>
+	</table>
+	
+	<div id = "repeat-pop-up-menu">button 2</div>
+		<table class = "hidden-table">
+		<tr>
+			<td><div class = "status-word"></div></td>
+			<td>translate</td>
+			<td>перекладати</td>
+		</tr>
+		<tr>
+			<td><div class = "status-word"></div></td>
+			<td>bread</td>
+			<td>хліб</td>
+		</tr>
+		<tr>
+			<td><div class = "status-word"></div></td>
+			<td>important</td>
+			<td>важливий</td>
+		</tr>
+	</table>
+	
+</div>
