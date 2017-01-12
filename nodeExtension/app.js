@@ -38,6 +38,7 @@ var view = require('./view/view')
 var controller = require('./controller/controller')(taskModel, view, request, cheerio);
 
 app.get('/getWords', controller.getWords);
+app.patch('/changeStatusWord', controller.setStatusWord);
 
 app.listen(8080);
 console.log('Listening 8080...');

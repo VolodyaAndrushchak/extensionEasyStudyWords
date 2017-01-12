@@ -6,24 +6,24 @@
 		margin: 0;
 		padding: 0;
 	}
-	
+
 	#wrapper {
 		width: 200px;
 		height: auto;
 	}
 	
-	#wrapper p {
+	#wrapper  p {
 		text-align: center;
 	}
-	#wrapper p:nth-child(2) {
-		font-size: 19px;
+	#wrapper > p:nth-child(1) {
+		font-size: 16px;
 	}
 	
-	#wrapper p:nth-child(3) {
+	#wrapper #main-content > p:nth-child(1) {
 		margin-top: 3px;
 	}
 	
-	#wrapper p:nth-child(3)  {
+	#wrapper #main-content > p:nth-child(1)  {
 		font-size: 15px;
 	}
 	
@@ -64,7 +64,7 @@
 		text-align: center;
 	}	
 	#new-pop-up-menu:hover, #repeat-pop-up-menu:hover {
-		background-color: #FEFEAA;
+		background-color:#F1EFEF;
 		cursor: pointer;
 	}
 	
@@ -80,68 +80,120 @@
 		
 	}
 	
+	#buttonTrain, #buttonStudy {
+		width: 100px;
+		height: 32px;
+		margin: auto;
+		margin-bottom: 7px;
+		margin-top: 7px;
+		text-align: center;
+		font-size: 17px;
+    	padding-top: 7px;
+		background-image: url(img/buttonTrain.png);
+		background-repeat: no-repeat;
+		background-position: 71px 12px;
+		/*pointer-events:none;*/
+	}
+	#buttonTrain:focus, #buttonStudy:focus {
+		border:none;
+	}
+	
+	#buttonTrain:hover, #buttonStudy:hover, #checkButton:hover {
+		cursor: pointer;
+		background-color:#F1EFEF;
+		
+	}
+	
+	#main-content ul {
+		width: 90%;
+		margin: auto;
+		list-style-type: none;
+	}
+	
+	#main-content ul li {
+		width: 100%;
+		font-size: 14px;
+		padding-bottom: 5px;
+		border-radius: 4px;
+		margin-bottom: 3px;
+	}
+	
+	#main-content ul li input {
+		margin-right: 13px;
+		position: relative;
+    	top: 5px;
+		left:6px;
+	}
+	
+	#checkButton {
+		width: 100px;
+		height: 22px;
+		margin: auto;
+		text-align: center;
+		font-size: 17px;
+    	padding-top: 0px;
+		
+		display: none;
+	}
+	
+	#studyWords {
+		margin-top: 10px;
+	}
+	
+	#studyWords p:first-child{
+		font-size: 21px;
+	}
+	
+	#studyWords p:nth-child(2) {
+		font-size: 15px;
+   		margin-top: 2px;
+	}
+	
+	#studyWords p:nth-child(3) {
+		font-size: 20px;
+   		margin-top: -2px;
+	}
+	
+	#testList input {
+		height: 19px;
+	}
+	
+	#trainWords {
+		margin-top: 16px;
+		margin-bottom: 10px;
+	}
+	
+	#trainWords p:first-child{
+		font-size: 19px;
+		font-weight: bold;
+		margin-bottom: 4px;
+	}
+	
 </style>
 
 <div id="wrapper">
-	<p>qwerty</p>
-	
+
 	<p>Easy study words</p>
-	<p>Study <span>new</span></p>
 	
-	<table id = "tableNew">
-		
-	</table>
+	<div id = "main-content">
+		<p>Study <span>new</span></p>
 	
-	<div id = "new-pop-up-menu" onclick="showHiddenWords()">button 1</div>
-		<table class = "hidden-table">
-			<tr>
-				<td><div class = "status-word"></div></td>
-				<td>translate</td>
-				<td>перекладати</td>
-			</tr>
-			<tr>
-				<td><div class = "status-word"></div></td>
-				<td>bread</td>
-				<td>хліб</td>
-			</tr>
-			<tr>
-				<td><div class = "status-word"></div></td>
-				<td>important</td>
-				<td>важливий</td>
-			</tr>
+		<table id = "tableNew">
 		</table>
-	
-	<p class = "previous-words">and repeat <span>previous</span> words</p>	
-	<table>
-		<tr>
-			<td><div class = "status-word"></div></td>
-			<td>translate</td>
-			<td>перекладати</td>
-		</tr>
-		<tr>
-			<td><div class = "status-word"></div></td>
-			<td>bread</td>
-			<td>хліб</td>
-		</tr>
-	</table>
-	
-	<div id = "repeat-pop-up-menu">button 2</div>
-		<table class = "hidden-table">
-		<tr>
-			<td><div class = "status-word"></div></td>
-			<td>translate</td>
-			<td>перекладати</td>
-		</tr>
-		<tr>
-			<td><div class = "status-word"></div></td>
-			<td>bread</td>
-			<td>хліб</td>
-		</tr>
-		<tr>
-			<td><div class = "status-word"></div></td>
-			<td>important</td>
-			<td>важливий</td>
-		</tr>
-	</table>
+
+		<div id = "new-pop-up-menu" ><img src="img/arrowBottom.png" alt=""></div>
+		<table id = "tableNewHidden" class = "hidden-table">
+		</table>
+
+		<p class = "previous-words">repeat <span>previous</span> words</p>	
+		<table id = "previousWords">
+		</table>
+
+		<div id = "repeat-pop-up-menu"><img src="img/arrowBottom.png" alt=""></div>
+		<table id = "previousWordsHidden" class = "hidden-table">
+		</table>
+	</div>
+	<div id='checkButton'>Check</div>
+	<div id = "buttonStudy">Study</div>
 	
 </div>
