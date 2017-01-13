@@ -29,7 +29,7 @@ module.exports = function(model, view, request, cheerio){
 			console.log(req.body.word);
 			model.getStatusWord(req.body.word, function(err, answerDB){
 				// colums of word's status
-				var arrCol = [ "stnew", "stfamiliar", "stintemediate", "stalmostknow", "stknow"];
+				var arrCol = [ "stnew", "stfamiliar", "stintermediate", "stalmostknow", "stknow"];
 				//iteration for founding status word
 				var iter = 0;
 				//founding status word

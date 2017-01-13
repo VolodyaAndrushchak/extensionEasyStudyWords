@@ -14,6 +14,7 @@ window.onload = function() {
 		this.arrCommonWords = [];
 		this.rightAnswer = 0;
 		this.arrLocal;
+		this.isNewWords = true;
 		
 	}
 	Words.prototype.minHeightWindow = function() {
@@ -40,6 +41,7 @@ window.onload = function() {
             success: function(answer){
 				//attach answer(words) to neccesary property
 				that.arrWords = answer;
+				that.isNewWords == that.arrWords[0].length != 0 ? true : false;
 				//words in common array
 				for(var i = 0; i < that.arrWords.length; i++) {
 					for(var j = 0; j < that.arrWords[i].length; j++) {
@@ -89,6 +91,7 @@ window.onload = function() {
 	}
 	
 	Words.prototype.trainWords = function() {
+		//train necessary amount words
 		if (this.trainInc < this.arrCommonWords.length) {
 			
 			this.arrLocal = new Array(4);
@@ -120,7 +123,13 @@ window.onload = function() {
 			this.minHeightWindow();
 			
 			this.trainInc++;
+			$('#buttonStudy').html('Next');
 			//console.log(arrLocal);
+		}
+		//last words
+		else {
+			$('#main-content').empty();
+			$('#main-content').append("<p>You finished training!</p>");
 		}
 		
 		
@@ -139,6 +148,7 @@ window.onload = function() {
 			$('#main-content').append(strHTML);
 			this.minHeightWindow();
 			this.studyInc++;
+			$('#buttonStudy').html('Next');
 			
 			if( this.studyInc === this.arrWords[0].length ) {
 				$('#buttonStudy').html('Train');
@@ -217,10 +227,12 @@ window.onload = function() {
 	}
 	
 	document.getElementById("buttonStudy").onclick=function(){
-		if($('#buttonStudy').html() != 'Train') {
+		console.log( word.isNewWords);
+		if($('#buttonStudy').html() != 'Train' && word.isNewWords == true) {
 			word.studyWords();
 		}
 		else {
+			
 			$('#checkButton').css('display', 'block');
 			$('#checkButton').css('pointer-events', 'visiblePainted ');
 			$('#checkButton').css('color', '#000');
