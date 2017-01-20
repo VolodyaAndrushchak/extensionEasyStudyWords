@@ -123,7 +123,7 @@ window.onload = function() {
 			this.minHeightWindow();
 			
 			this.trainInc++;
-			$('#buttonStudy').html('Next');
+			$('#buttonStudy').html('Train');
 			//console.log(arrLocal);
 		}
 		//last words
@@ -148,7 +148,7 @@ window.onload = function() {
 			$('#main-content').append(strHTML);
 			this.minHeightWindow();
 			this.studyInc++;
-			$('#buttonStudy').html('Next');
+			$('#buttonStudy').html('Study');
 			
 			if( this.studyInc === this.arrWords[0].length ) {
 				$('#buttonStudy').html('Train');
@@ -228,7 +228,7 @@ window.onload = function() {
 	
 	document.getElementById("buttonStudy").onclick=function(){
 		console.log( word.isNewWords);
-		if($('#buttonStudy').html() != 'Train' && word.isNewWords == true) {
+		if( $('#buttonStudy').html() != 'Train' && word.isNewWords == true) {
 			word.studyWords();
 		}
 		else {

@@ -13,20 +13,19 @@
 	}
 	.user-card-added .uca-fon p {
 		font-size: 15px;
-		top: 65px;
+		margin-top: 65px;
 	}
 	.user-cards .user-card-added {
 		height: 150px;
 	}
 	.user-exists-card .uca-fon p {
 		font-size: 15px;
-		top: 65px;
+		margin-top: 65px;
 	}
 	.user-cards .user-exists-card {
 		height: 150px;
 	}
 	.user-cards .user-card-added .uca-fon p {
-		text-indent: -18px;
 	}
 }
 
@@ -38,7 +37,7 @@
 	}
 	.user-card-added .uca-fon p {
 		font-size: 13px;
-		top: 65px;	
+		margin-top: 65px;
 	}
 	
 	.user-cards .user-card-added {
@@ -57,7 +56,7 @@
 	}
 	.user-card-added .uca-fon p {
 		font-size: 12px;
-		top: 50px;	
+		margin-top: 50px;	
 	}
 	
 	.user-cards .user-card-added {
