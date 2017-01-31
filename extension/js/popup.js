@@ -39,41 +39,44 @@ window.onload = function() {
             url: "http://localhost:8080/getWords",
             type: 'GET',
             success: function(answer){
-				//attach answer(words) to neccesary property
-				that.arrWords = answer;
-				that.isNewWords == that.arrWords[0].length != 0 ? true : false;
-				//words in common array
-				for(var i = 0; i < that.arrWords.length; i++) {
-					for(var j = 0; j < that.arrWords[i].length; j++) {
-						that.arrCommonWords.push(that.arrWords[i][j]);
+				console.log(answer);
+				if(answer.success){
+					//attach answer(words) to neccesary property
+					that.arrWords = answer.object;
+					console.log(that.arrWords);
+					that.isNewWords == that.arrWords[0].length != 0 ? true : false;
+					//words in common array
+					for(var i = 0; i < that.arrWords.length; i++) {
+						for(var j = 0; j < that.arrWords[i].length; j++) {
+							that.arrCommonWords.push(that.arrWords[i][j]);
+						}
 					}
-				}
-				//append words in table
-				if (that.arrWords[0].length < 3) {
-					//append three new words in text
-					appendWordsInPopUp('tableNew', 0, that.arrWords[0].length, answer, 0);
-				}
-				else {
-					//apend familiar... words
+					//append words in table
+					if (that.arrWords[0].length < 3) {
+						//append three new words in text
+						appendWordsInPopUp('tableNew', 0, that.arrWords[0].length, answer.object, 0);
+					}
+					else {
+						//apend familiar... words
+						appendWordsInPopUp('tableNew', 0, 3, answer.object, 0);
+						appendWordsInPopUp('tableNewHidden', 3, that.arrWords[0].length, answer.object, 0);
+					}
+					/*
 					appendWordsInPopUp('tableNew', 0, 3, answer, 0);
-					appendWordsInPopUp('tableNewHidden', 3, that.arrWords[0].length, answer, 0);
-				}
-				/*
-				appendWordsInPopUp('tableNew', 0, 3, answer, 0);
-				// append hidden three words
-				appendWordsInPopUp('tableNewHidden', 3, 6, answer, 0);*/
-				//apend familiar... words
-				for (var i = 1; i < 4; i++) {
-					if( answer[i] != [] ) {
-						appendWordsInPopUp('previousWords', 0, 6, answer, i);
-						break;
+					// append hidden three words
+					appendWordsInPopUp('tableNewHidden', 3, 6, answer, 0);*/
+					//apend familiar... words
+					for (var i = 1; i < 4; i++) {
+						if( answer[i] != [] ) {
+							appendWordsInPopUp('previousWords', 0, 6, answer.object, i);
+							break;
+						}
 					}
-				}
-				//apend familiar in hidden table
-				for (var i = 2; i < 4; i++) {
-					appendWordsInPopUp('previousWordsHidden', 0, 6, answer, i);
-				}
-				
+					//apend familiar in hidden table
+					for (var i = 2; i < 4; i++) {
+						appendWordsInPopUp('previousWordsHidden', 0, 6, answer.object, i);
+					}
+				}			
             }
 		});
 	}
